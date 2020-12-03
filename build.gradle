@@ -1,0 +1,52 @@
+buildscript {
+    ext{
+        dependencyManagerVersion = '1.0.10.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven{
+            url = 'https://plugins.gradle.org/m2/'
+        }
+    }
+
+    dependencies{
+        classpath("io.spring.gradle:dependency-management-plugin:${dependencyManagerVersion}")
+    }
+}
+
+allprojects{
+
+    // You can modify this
+    group = 'io.github.example'
+    version = '1.0-SNAPSHOT'
+}
+
+subprojects{
+    repositories{
+        mavenCentral()
+        jcenter()
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'io.spring.dependency-management'
+
+    ext {
+        SLF4J_API_VERSION = '1.7.30'
+        SLF4J_Log4j12_VERSION = '1.7.30'
+        mavenBomVersion = '2.3.4.RELEASE'
+        JUNIT_VERSION = '4.13'
+    }
+
+    dependencyManagement {
+        imports{
+            mavenBom 'org.springframework.boot:spring-boot-starter-parent:2.3.4.RELEASE'
+        }
+    }
+
+    dependencies{
+        compile "org.slf4j:slf4j-api:${SLF4J_API_VERSION}"
+        compile "org.slf4j:slf4j-log4j12:${SLF4J_Log4j12_VERSION}"
+        testCompile "junit:junit:${JUNIT_VERSION}"
+    }
+}
