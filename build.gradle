@@ -34,7 +34,6 @@ subprojects{
     ext {
         SLF4J_API_VERSION = '1.7.30'
         SLF4J_Log4j12_VERSION = '1.7.30'
-        mavenBomVersion = '2.3.4.RELEASE'
         JUNIT_VERSION = '4.13'
     }
 
