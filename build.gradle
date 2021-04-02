@@ -1,5 +1,6 @@
 buildscript {
     ext{
+        SHADOWJAR_VERSION = '6.1.0'
     }
     repositories {
         mavenCentral()
@@ -9,6 +10,7 @@ buildscript {
     }
 
     dependencies{
+        classpath "com.github.jengelman.gradle.plugins:shadow:${SHADOWJAR_VERSION}"
     }
 }
 
@@ -27,6 +29,7 @@ subprojects{
 
     apply plugin: 'java'
     apply plugin: 'idea'
+    apply plugin: 'com.github.johnrengelman.shadow'
 
     ext {
         SLF4J_API_VERSION = '1.7.30'
