@@ -1,5 +1,6 @@
 buildscript {
     ext{
+        KOTLIN_VERSION = '1.4.31'
     }
     repositories {
         mavenCentral()
@@ -9,6 +10,7 @@ buildscript {
     }
 
     dependencies{
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_VERSION}"
     }
 }
 
@@ -26,15 +28,20 @@ subprojects{
     }
 
     apply plugin: 'java'
+    apply plugin: 'org.jetbrains.kotlin.jvm'
     apply plugin: 'idea'
+    apply plugin: 'kotlin-kapt'
+    
 
     ext {
+        KOTLIN_STDLIB = '1.4.31'
         SLF4J_API_VERSION = '1.7.30'
         SLF4J_Log4j12_VERSION = '1.7.30'
         JUNIT_VERSION = '4.13'
     }
 
     dependencies{
+        implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.4.31'
         compile "org.slf4j:slf4j-api:${SLF4J_API_VERSION}"
         compile "org.slf4j:slf4j-log4j12:${SLF4J_Log4j12_VERSION}"
         testCompile "junit:junit:${JUNIT_VERSION}"
