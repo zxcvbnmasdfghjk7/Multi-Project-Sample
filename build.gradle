@@ -1,6 +1,7 @@
 buildscript {
     ext{
         KOTLIN_VERSION = '1.4.31'
+        SHADOWJAR_VERSION = '6.1.0'
     }
     repositories {
         mavenCentral()
@@ -11,6 +12,7 @@ buildscript {
 
     dependencies{
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_VERSION}"
+        classpath "com.github.jengelman.gradle.plugins:shadow:${SHADOWJAR_VERSION}"
     }
 }
 
@@ -31,6 +33,7 @@ subprojects{
     apply plugin: 'org.jetbrains.kotlin.jvm'
     apply plugin: 'idea'
     apply plugin: 'kotlin-kapt'
+    apply plugin: 'com.github.johnrengelman.shadow'
     
 
     ext {
