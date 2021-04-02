@@ -1,6 +1,5 @@
 buildscript {
     ext{
-        dependencyManagerVersion = '1.0.11.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -10,7 +9,6 @@ buildscript {
     }
 
     dependencies{
-        classpath("io.spring.gradle:dependency-management-plugin:${dependencyManagerVersion}")
     }
 }
 
@@ -29,18 +27,11 @@ subprojects{
 
     apply plugin: 'java'
     apply plugin: 'idea'
-    apply plugin: 'io.spring.dependency-management'
 
     ext {
         SLF4J_API_VERSION = '1.7.30'
         SLF4J_Log4j12_VERSION = '1.7.30'
         JUNIT_VERSION = '4.13'
-    }
-
-    dependencyManagement {
-        imports{
-            mavenBom 'org.springframework.boot:spring-boot-starter-parent:2.4.2'
-        }
     }
 
     dependencies{
