@@ -1,6 +1,7 @@
 pluginManagement{
     val kotlinVersion: String by settings
     val shadowJarVersion: String by settings
+
     repositories{
         mavenCentral()
         maven{
